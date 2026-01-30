@@ -1,0 +1,1077 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elite Aligned Community | Free Coaching Community by Simon Davis</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --mint: #2D6A5D;
+            --mint-light: #E8F5F1;
+            --mint-dark: #1E4A40;
+            --gold: #C9A227;
+            --gold-light: #F5E6B3;
+            --gold-gradient: linear-gradient(135deg, #C9A227 0%, #E8D48A 50%, #C9A227 100%);
+            --white: #FFFFFF;
+            --off-white: #FAFAF8;
+            --dark: #1A1A1A;
+            --gray: #6B7280;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--off-white);
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            line-height: 1.2;
+        }
+
+        /* Utility */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* CTA Button Styles */
+        .cta-primary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            background: var(--mint);
+            color: var(--white);
+            font-family: 'DM Sans', sans-serif;
+            font-size: 18px;
+            font-weight: 600;
+            padding: 18px 40px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(45, 106, 93, 0.3);
+        }
+
+        .cta-primary:hover {
+            background: var(--mint-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 30px rgba(45, 106, 93, 0.4);
+        }
+
+        .cta-primary svg {
+            transition: transform 0.3s ease;
+        }
+
+        .cta-primary:hover svg {
+            transform: translateX(4px);
+        }
+
+        .cta-gold {
+            background: var(--gold-gradient);
+            color: var(--dark);
+            box-shadow: 0 4px 20px rgba(201, 162, 39, 0.4);
+        }
+
+        .cta-gold:hover {
+            background: linear-gradient(135deg, #B8911F 0%, #D4C47A 50%, #B8911F 100%);
+            box-shadow: 0 6px 30px rgba(201, 162, 39, 0.5);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(180deg, var(--mint-light) 0%, var(--off-white) 100%);
+            padding: 60px 0 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(201, 162, 39, 0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--white);
+            border: 1px solid rgba(45, 106, 93, 0.2);
+            padding: 8px 20px;
+            border-radius: 100px;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--mint);
+            margin-bottom: 24px;
+            animation: fadeInDown 0.6s ease;
+        }
+
+        .hero-badge svg {
+            color: var(--gold);
+        }
+
+        .hero h1 {
+            font-size: clamp(36px, 6vw, 56px);
+            color: var(--mint-dark);
+            margin-bottom: 20px;
+            animation: fadeInUp 0.6s ease 0.1s both;
+        }
+
+        .hero h1 span {
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subhead {
+            font-size: 20px;
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto 32px;
+            animation: fadeInUp 0.6s ease 0.2s both;
+        }
+
+        .hero-cta-wrapper {
+            animation: fadeInUp 0.6s ease 0.3s both;
+        }
+
+        .hero-trust {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 24px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.6s ease 0.4s both;
+        }
+
+        .trust-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            color: var(--gray);
+        }
+
+        .trust-item svg {
+            color: var(--mint);
+        }
+
+        /* Logo Section */
+        .logo-section {
+            text-align: center;
+            padding: 40px 0;
+            background: var(--white);
+            border-bottom: 1px solid rgba(45, 106, 93, 0.1);
+        }
+
+        .logo-img {
+            height: 80px;
+            margin-bottom: 8px;
+        }
+
+        /* Problem Section */
+        .problem {
+            padding: 80px 0;
+            background: var(--white);
+        }
+
+        .problem-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 60px;
+            align-items: center;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .problem h2 {
+            font-size: 36px;
+            color: var(--mint-dark);
+            margin-bottom: 24px;
+        }
+
+        .problem-text p {
+            font-size: 18px;
+            color: var(--gray);
+            margin-bottom: 16px;
+        }
+
+        .problem-list {
+            list-style: none;
+            margin-top: 24px;
+        }
+
+        .problem-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            font-size: 16px;
+            color: var(--dark);
+            margin-bottom: 16px;
+        }
+
+        .problem-list svg {
+            flex-shrink: 0;
+            color: var(--gold);
+            margin-top: 4px;
+        }
+
+        /* Value Stack Section */
+        .value-stack {
+            padding: 100px 0;
+            background: linear-gradient(180deg, var(--mint-light) 0%, var(--off-white) 100%);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 40px;
+            color: var(--mint-dark);
+            margin-bottom: 16px;
+        }
+
+        .section-header p {
+            font-size: 18px;
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .value-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-bottom: 60px;
+        }
+
+        .value-card {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 32px;
+            border: 1px solid rgba(45, 106, 93, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .value-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(45, 106, 93, 0.1);
+        }
+
+        .value-icon {
+            width: 56px;
+            height: 56px;
+            background: var(--mint-light);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .value-icon svg {
+            color: var(--mint);
+        }
+
+        .value-card h3 {
+            font-size: 20px;
+            color: var(--mint-dark);
+            margin-bottom: 12px;
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 600;
+        }
+
+        .value-card p {
+            font-size: 15px;
+            color: var(--gray);
+        }
+
+        .value-card .value-tag {
+            display: inline-block;
+            background: var(--gold-gradient);
+            color: var(--dark);
+            font-size: 12px;
+            font-weight: 600;
+            padding: 4px 12px;
+            border-radius: 100px;
+            margin-top: 16px;
+        }
+
+        .value-cta {
+            text-align: center;
+        }
+
+        /* About Simon Section */
+        .about {
+            padding: 100px 0;
+            background: var(--white);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-image {
+            position: relative;
+        }
+
+        .about-image-placeholder {
+            aspect-ratio: 4/5;
+            background: linear-gradient(135deg, var(--mint-light) 0%, var(--mint) 100%);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 18px;
+            font-weight: 500;
+        }
+
+        .about-image::after {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            right: -20px;
+            bottom: -20px;
+            border: 2px solid var(--gold);
+            border-radius: 20px;
+            z-index: -1;
+        }
+
+        .about-content h2 {
+            font-size: 36px;
+            color: var(--mint-dark);
+            margin-bottom: 24px;
+        }
+
+        .about-content p {
+            font-size: 17px;
+            color: var(--gray);
+            margin-bottom: 16px;
+        }
+
+        .about-stats {
+            display: flex;
+            gap: 40px;
+            margin-top: 32px;
+            padding-top: 32px;
+            border-top: 1px solid rgba(45, 106, 93, 0.1);
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            font-weight: 600;
+            color: var(--mint);
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: var(--gray);
+        }
+
+        /* Disruption Program Section */
+        .disruption {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--mint-dark) 0%, var(--mint) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .disruption::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            pointer-events: none;
+        }
+
+        .disruption-box {
+            background: linear-gradient(135deg, rgba(201, 162, 39, 0.15) 0%, rgba(201, 162, 39, 0.05) 100%);
+            border: 2px solid var(--gold);
+            border-radius: 24px;
+            padding: 60px;
+            text-align: center;
+            position: relative;
+            backdrop-filter: blur(10px);
+        }
+
+        .disruption-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--gold-gradient);
+            color: var(--dark);
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 10px 24px;
+            border-radius: 100px;
+            margin-bottom: 24px;
+        }
+
+        .disruption-box h2 {
+            font-size: 42px;
+            color: var(--white);
+            margin-bottom: 20px;
+        }
+
+        .disruption-box h2 span {
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .disruption-box > p {
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.85);
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+
+        .disruption-features {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .disruption-feature {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--white);
+            font-size: 15px;
+        }
+
+        .disruption-feature svg {
+            color: var(--gold);
+        }
+
+        .disruption-note {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.6);
+            margin-top: 20px;
+        }
+
+        /* Social Proof Section */
+        .social-proof {
+            padding: 80px 0;
+            background: var(--off-white);
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .testimonial {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 32px;
+            border: 1px solid rgba(45, 106, 93, 0.1);
+        }
+
+        .testimonial-stars {
+            display: flex;
+            gap: 4px;
+            margin-bottom: 16px;
+        }
+
+        .testimonial-stars svg {
+            color: var(--gold);
+        }
+
+        .testimonial p {
+            font-size: 15px;
+            color: var(--gray);
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .testimonial-avatar {
+            width: 44px;
+            height: 44px;
+            background: var(--mint-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            color: var(--mint);
+        }
+
+        .testimonial-name {
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        .testimonial-role {
+            font-size: 13px;
+            color: var(--gray);
+        }
+
+        /* FAQ Section */
+        .faq {
+            padding: 80px 0;
+            background: var(--white);
+        }
+
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            margin-top: 40px;
+        }
+
+        .faq-item {
+            background: var(--off-white);
+            border-radius: 12px;
+            padding: 24px;
+        }
+
+        .faq-question {
+            font-weight: 600;
+            color: var(--mint-dark);
+            margin-bottom: 12px;
+            font-size: 17px;
+        }
+
+        .faq-answer {
+            font-size: 15px;
+            color: var(--gray);
+        }
+
+        /* Final CTA Section */
+        .final-cta {
+            padding: 100px 0;
+            background: var(--mint-light);
+            text-align: center;
+        }
+
+        .final-cta h2 {
+            font-size: 44px;
+            color: var(--mint-dark);
+            margin-bottom: 20px;
+        }
+
+        .final-cta h2 span {
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .final-cta p {
+            font-size: 18px;
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+
+        .final-cta-features {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .final-cta-feature {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 15px;
+            color: var(--mint-dark);
+        }
+
+        .final-cta-feature svg {
+            color: var(--mint);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--mint-dark);
+            color: rgba(255, 255, 255, 0.7);
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        footer p {
+            font-size: 14px;
+        }
+
+        footer a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .problem-grid,
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .about-image {
+                order: -1;
+                max-width: 400px;
+                margin: 0 auto;
+            }
+
+            .value-grid,
+            .testimonial-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .faq-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .disruption-box {
+                padding: 40px 24px;
+            }
+
+            .disruption-features {
+                flex-direction: column;
+                align-items: center;
+                gap: 16px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .section-header h2,
+            .about-content h2,
+            .problem h2 {
+                font-size: 28px;
+            }
+
+            .disruption-box h2 {
+                font-size: 28px;
+            }
+
+            .final-cta h2 {
+                font-size: 32px;
+            }
+
+            .about-stats {
+                flex-direction: column;
+                gap: 24px;
+            }
+
+            .hero-trust {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .cta-primary {
+                width: 100%;
+                padding: 16px 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+                    100% Free Community • No Credit Card Required
+                </div>
+                <h1>Stop Going At It <span>Alone.</span><br>Join 500+ People Transforming Their Lives Together.</h1>
+                <p class="hero-subhead">Get the accountability, coaching, and community you need to finally break through. Real support. Real results. Actually free.</p>
+                <div class="hero-cta-wrapper">
+                    <a href="https://www.skool.com/elite-aligned/about" class="cta-primary">
+                        Join Free Today
+                        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                </div>
+                <div class="hero-trust">
+                    <div class="trust-item">
+                        <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+                        Free Forever
+                    </div>
+                    <div class="trust-item">
+                        <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+                        Active Community
+                    </div>
+                    <div class="trust-item">
+                        <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+                        Expert-Led
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="problem">
+        <div class="container">
+            <div class="problem-grid">
+                <div class="problem-text">
+                    <h2>You've Tried Everything. YouTube Videos. Books. Courses. Nothing Sticks.</h2>
+                    <p>You know you're capable of more. You've got the drive. But every time you try to level up, you end up back where you started.</p>
+                    <p>The problem isn't information. It's isolation.</p>
+                    <ul class="problem-list">
+                        <li>
+                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+                            No one to hold you accountable when motivation fades
+                        </li>
+                        <li>
+                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+                            Surrounded by people who don't understand your goals
+                        </li>
+                        <li>
+                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+                            Consuming endless content but never taking action
+                        </li>
+                        <li>
+                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+                            Feeling stuck while watching others pass you by
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Value Stack Section -->
+    <section class="value-stack">
+        <div class="container">
+            <div class="section-header">
+                <h2>Everything You Get Inside (For Free)</h2>
+                <p>This isn't some dead community with tumbleweeds. It's an active, supportive group of people actually doing the work.</p>
+            </div>
+            <div class="value-grid">
+                <div class="value-card">
+                    <div class="value-icon">
+                        <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    </div>
+                    <h3>Real Accountability Partners</h3>
+                    <p>Get matched with people who actually check in on you. No ghosting. No flaking. Just genuine support from people who get it.</p>
+                    <span class="value-tag">Worth $500/mo</span>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                    </div>
+                    <h3>Daily Mindset Discussions</h3>
+                    <p>Wake up to conversations that actually move the needle. No fluff. No toxic positivity. Just real talk about what works.</p>
+                    <span class="value-tag">Worth $200/mo</span>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                    </div>
+                    <h3>Goal Setting Framework</h3>
+                    <p>Access the exact system Simon uses with his private clients. Set goals that actually stick and track your progress publicly.</p>
+                    <span class="value-tag">Worth $300/mo</span>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+                    </div>
+                    <h3>Weekly Challenges</h3>
+                    <p>Push your limits with community challenges. Build momentum through action, not just consumption.</p>
+                    <span class="value-tag">Worth $150/mo</span>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+                    </div>
+                    <h3>Resource Library</h3>
+                    <p>Templates, guides, and tools curated by Simon. Everything you need to take action immediately.</p>
+                    <span class="value-tag">Worth $200/mo</span>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
+                    </div>
+                    <h3>Live Sessions & AMAs</h3>
+                    <p>Jump on live calls with Simon and the community. Get your questions answered. Get unstuck fast.</p>
+                    <span class="value-tag">Worth $500/mo</span>
+                </div>
+            </div>
+            <div class="value-cta">
+                <a href="https://www.skool.com/elite-aligned/about" class="cta-primary">
+                    Get Instant Access (Free)
+                    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Simon Section -->
+    <section class="about">
+        <div class="container">
+            <div class="about-grid" style="grid-template-columns: 1fr; max-width: 800px; margin: 0 auto;">
+                <div class="about-content" style="text-align: center;">
+                    <h2>Meet Simon Davis</h2>
+                    <p>Simon isn't your typical "mindset coach" who read a few books and started a podcast. He's been in the trenches. Rock bottom. Broke. Lost. Directionless.</p>
+                    <p>And then he figured it out. Not through some magic pill or overnight transformation, but through relentless experimentation, brutal self-honesty, and building systems that actually work.</p>
+                    <p>Now he's dedicated his life to helping others skip the decade of struggle he went through. The Elite Aligned Community is where he shows up daily to share what's working, answer questions, and push people to become the best versions of themselves.</p>
+                    <div class="about-stats" style="justify-content: center;">
+                        <div class="stat">
+                            <div class="stat-number">500+</div>
+                            <div class="stat-label">Community Members</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">10+</div>
+                            <div class="stat-label">Years Coaching</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">1000+</div>
+                            <div class="stat-label">Lives Changed</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Disruption Program Section -->
+    <section class="disruption">
+        <div class="container">
+            <div class="disruption-box">
+                <div class="disruption-badge">
+                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+                    Exclusive Access Inside The Community
+                </div>
+                <h2>Unlock The <span>Disruption Program</span></h2>
+                <p>This is Simon's life work. The exact framework that took him from rock bottom to a life of purpose, fulfillment, and success. It's been refined over a decade and has transformed thousands of lives. And as a member of the Elite Aligned Community, you get the opportunity to access it.</p>
+                <div class="disruption-features">
+                    <div class="disruption-feature">
+                        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+                        Complete Mindset Overhaul System
+                    </div>
+                    <div class="disruption-feature">
+                        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+                        Step-by-Step Transformation Blueprint
+                    </div>
+                    <div class="disruption-feature">
+                        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+                        Direct Access to Simon
+                    </div>
+                </div>
+                <a href="https://placeholder-disruption-program-link.com" class="cta-primary cta-gold">
+                    Learn More About The Disruption Program
+                    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+                <p class="disruption-note">Join the free community first to learn more about this opportunity</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof Section -->
+    <section class="social-proof">
+        <div class="container">
+            <div class="section-header">
+                <h2>What Members Are Saying</h2>
+                <p>Real results from real people in the community</p>
+            </div>
+            <div class="testimonial-grid">
+                <div class="testimonial">
+                    <div class="testimonial-stars">
+                        <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+                        <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+                        <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+                        <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+                        <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+                    </div>
+                    <p>"I've been in dozens of communities. Most are dead or full of people just lurking. This one is different. People actually engage and push each other. Finally found my tribe."</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">MJ</div>
+                        <div>
+                            <div class="testimonial-name">Michael J.</div>
+                            <div class="testimonial-role">Entrepreneur, 42</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <div class="testimonial-stars">
+                        <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+                        <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+                        <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+                        <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+                        <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+                    </div>
+                    <p>"Simon's authenticity is refreshing. No BS, no fluff. Just real advice from someone who's actually been through it. The accountability alone has been game-changing for me."</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">SR</div>
+                        <div>
+                            <div class="testimonial-name">Sarah R.</div>
+                            <div class="testimonial-role">Career Changer, 38</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <div class="testimonial-stars">
+                        <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+                        <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+                        <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+                        <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+                        <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+                    </div>
+                    <p>"Was skeptical of another 'free community' but this one delivers. The daily engagement keeps me on track. Lost 30 lbs and started the side hustle I'd been putting off for years."</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">DK</div>
+                        <div>
+                            <div class="testimonial-name">David K.</div>
+                            <div class="testimonial-role">Software Dev, 45</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq">
+        <div class="container">
+            <div class="section-header">
+                <h2>Got Questions?</h2>
+            </div>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <div class="faq-question">Is this actually free?</div>
+                    <div class="faq-answer">Yes. 100% free. No credit card required. No hidden fees. No "free trial" that charges you later. Simon built this because he believes everyone deserves access to a supportive community, regardless of their financial situation.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">What makes this different from other communities?</div>
+                    <div class="faq-answer">Most free communities are ghost towns. This one is actively moderated by Simon himself, with daily engagement, weekly challenges, and real accountability. Plus, you're surrounded by people who are actually committed to growth, not just lurkers.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">How much time do I need to commit?</div>
+                    <div class="faq-answer">Whatever you want. Some members check in for 5 minutes a day. Others spend hours engaging. The community is there when you need it. No pressure, no requirements.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">What if I'm not sure this is for me?</div>
+                    <div class="faq-answer">Join and see. It's free, takes 30 seconds to sign up, and you can leave anytime. No risk. But fair warning: most people who join don't want to leave.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="final-cta">
+        <div class="container">
+            <h2>Your Future Self Is Waiting. <span>Join Today.</span></h2>
+            <p>Stop consuming. Start connecting. Get the accountability, support, and guidance you need to finally break through.</p>
+            <div class="final-cta-features">
+                <div class="final-cta-feature">
+                    <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+                    Free Forever
+                </div>
+                <div class="final-cta-feature">
+                    <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+                    Instant Access
+                </div>
+                <div class="final-cta-feature">
+                    <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+                    No Credit Card
+                </div>
+            </div>
+            <a href="https://www.skool.com/elite-aligned/about" class="cta-primary">
+                Join The Elite Aligned Community
+                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Elite Aligned Community. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
